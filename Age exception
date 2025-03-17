@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+int get_age()
+{   int age;
+    cout << "Enter Age: "; 
+    cin >> age;
+
+    if(age == 0) 	throw ("Your age is Zero");
+    if(age<0) 		throw (age);
+	return age;
+}
+int main() 
+{	int age;
+	try
+	{	age=get_age();
+		cout<<"Valid Age="<<age;
+	}	
+    catch(const char* msg) {
+        cout << msg << endl;  
+    }
+    catch(int a)
+    {
+    	cout<<a<<" is Negative Age";
+	}
+
+    return 0;
+}
