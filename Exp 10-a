@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	float a,b,c;
+	cout<<"Enter Two no. for division";
+	cin>>b>>c;
+	try
+	{
+	if(c==0)
+	throw "Divide by zero Error !";
+	a=b/c;
+	cout<<"Answers ="<<a;	
+	}
+	catch(const char* str)
+	{
+		cout<<"Exexption :"<<str;
+	}
+	
+	return 0;
+}
