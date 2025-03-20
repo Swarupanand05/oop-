@@ -1,0 +1,52 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Bookbus {
+    string from_city;
+    string to_city;
+    int no_of_tickets;
+    static int max_seat;
+    static int booked_seats;
+
+public:
+    Bookbus(string s = "Source", string d = "Destination", int t = 1) {
+        if (t > (max_seat - booked_seats)) {
+            throw runtime_error("There are not that many seats available.");
+        }
+        from_city = s;
+        to_city = d;
+        no_of_tickets = t;
+        booked_seats += t;
+    }
+
+    void showBooking() {
+        cout << "Source = " << from_city << endl;
+        cout << "Destination = " << to_city << endl;
+        cout << "No. of Tickets = " << no_of_tickets << endl;
+        cout << "Available Tickets = " << (max_seat - booked_seats) << endl;
+    }
+
+    static int getAvailableSeats() {
+        return max_seat - booked_seats;
+    }
+};
+
+int Bookbus::max_seat = 30;
+int Bookbus::booked_seats = 0;
+
+int main() {
+    try {
+        Bookbus b1("Kolhapur", "Pune", 3);
+        b1.showBooking();
+
+        Bookbus b2("Ichalkaranji", "Pune", 27); 
+        b2.showBooking();
+    }
+    catch (runtime_error &e) {
+        cout << "Exception: " << e.what() << endl;
+        cout << "Available Seats: " << Bookbus::getAvailableSeats() << endl;
+    }
+
+    return 0;
+}
