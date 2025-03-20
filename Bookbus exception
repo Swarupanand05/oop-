@@ -40,7 +40,7 @@ int main() {
         Bookbus b1("Kolhapur", "Pune", 3);
         b1.showBooking();
 
-        Bookbus b2("Ichalkaranji", "Pune", 27); 
+        Bookbus b2("Kolhapur", "Pune", 27); 
         b2.showBooking();
     }
     catch (runtime_error &e) {
