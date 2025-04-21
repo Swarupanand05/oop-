@@ -1,0 +1,22 @@
+#include<iostream>
+#include<map>
+#include<algorithm>
+using namespace std;
+int main()
+{//	map<key_data_type, value_data_type> var_name;
+//	var_name[key1]=value1;
+//	var_name[key2]=value2;
+	map<string,string> phonebook;
+	phonebook["aditya"]="9876543210";
+	phonebook["swapnil"]="1234567890";
+	
+	string name;
+	cout<<"Enter the name";
+	cin>>name;
+	if(phonebook.find(name) != phonebook.end())
+		cout<<name<<" : "<<phonebook[name];
+	else
+		cout<<name<<" not found.";
+	
+	return 0;	
+}
